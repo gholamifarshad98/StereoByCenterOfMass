@@ -48,8 +48,9 @@ class StereoByCenterOfMass:
                 self.kernels[row][column].calcCenterOfMassleft(self.leftImage,self.disparity)
                 print(self.kernels[row][column].centerOfMassLeft)
                 print(self.kernels[row][column].centerOfMassRight)
-                if self.kernels[row][column].centerOfMassLeft == self.kernels[row][column].centerOfMassRight:
+                if self.kernels[row][column].centerOfMassLeft == self.kernels[row][column].centerOfMassRight and not self.kernels[row][column].massLeft == self.kernels[row][column].massRight:
                     self.kernels[row][column].detectedObstacle = True
+                    print(self.kernels[row][column].massLeft)
         self.drawColorInKernels()
         # fig, ax1 = plt.plot()
         # ax1.plot(self.result)
